@@ -1,0 +1,219 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  --primary-color: #6363bf;
+  --secondary-color: #ebebff;
+  --accent-color: #4747ae;
+  --gray: #6e6e6e;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  font-size: 1.6rem;
+  background: var(--primary-color);
+  color: #fff;
+  font-family: 'Poppins', sans-serif;
+}
+
+ul {
+  list-style: none;
+}
+
+input,
+button {
+  font: inherit;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.container {
+  width: min(600px, 90%);
+  margin: auto;
+}
+
+header {
+  padding-block: 3rem;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+header,
+nav,
+footer {
+  text-align: center;
+}
+
+h1 {
+  font-size: 4.8rem;
+  font-weight: 400;
+  gap: 1.6rem;
+}
+
+h2 {
+  font-size: 1.8rem;
+  font-weight: 400;
+  margin-bottom: 2rem;
+}
+
+.menu {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  gap: 2rem 4rem;
+}
+
+.menu button {
+  border-radius: 10px;
+  width: 100%;
+  display: inline-block;
+  background: #fff;
+  color: var(--accent-color);
+  padding: 1rem;
+}
+
+.menu button:hover {
+  transform: translateY(-3px);
+  background: var(--secondary-color);
+}
+
+.menu button.active {
+  background: var(--secondary-color);
+  font-weight: 500;
+}
+
+.chat {
+  margin-block: 4rem;
+  padding: 3.2rem;
+  background: #fff;
+  color: #000;
+  max-height: 50rem;
+  overflow-y: auto;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+.empty-chat-message {
+  text-align: center;
+  color: var(--primary-color);
+  font-size: 1.5rem;
+}
+
+.empty-chat-message.hide {
+  display: none;
+}
+
+.chat,
+.chat__message {
+  border-radius: 10px;
+}
+
+.chat__message {
+  background: var(--secondary-color);
+  padding: 1.8rem;
+}
+
+.chat__message + .chat__message {
+  margin-top: 2.4rem;
+}
+
+.chat__content {
+  display: flex;
+  gap: 1.4rem;
+  line-height: 1.3;
+}
+
+.chat__name {
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+.chat__details {
+  font-size: 1.4rem;
+  color: var(--gray);
+  margin-top: 0.8rem;
+}
+
+.form-group {
+  width: 100%;
+  display: flex;
+}
+
+.form-group input {
+  border: none;
+  border-radius: 5px 0 0 5px;
+  padding: 1rem;
+  width: 80%;
+}
+
+.form-group .btn {
+  flex: 1;
+  border-radius: 0 5px 5px 0;
+  background: var(--secondary-color);
+  color: var(--accent-color);
+  font-weight: 500;
+}
+
+.form-group .btn:hover {
+  background: #ccccff;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.8rem;
+}
+
+form + form {
+  margin-top: 3rem;
+}
+
+form:last-child {
+  margin-bottom: 4rem;
+}
+
+.feedback-message {
+  margin-top: 1.2rem;
+  text-align: center;
+}
+
+footer {
+  font-size: 1.4rem;
+  padding: 2rem;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 500px) {
+  header {
+    padding-block: 2rem;
+  }
+
+  .form-group input {
+    width: 70%;
+  }
+  .chat {
+    padding: 2.4rem;
+  }
+}
