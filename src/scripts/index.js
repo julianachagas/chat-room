@@ -53,7 +53,7 @@ chatRoomsList.addEventListener('click', e => {
       button.classList.toggle('active', e.target === button);
     });
     // clear the current chat
-    chatUI.clear();
+    chatUI.clear(e.target.id);
     // update the room
     chatroom.updateRoom(e.target.id);
     // get the chats of the new room and render

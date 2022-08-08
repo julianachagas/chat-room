@@ -6,10 +6,10 @@ export default class ChatUI {
   }
 
   render(data) {
-    const { message, username, createdAt } = data;
+    const { message, username, createdAt, room } = data;
     const time = formatDistanceToNow(createdAt.toDate(), { addSuffix: true });
-    const emptyChatMessage = document.querySelector('.empty-chat-message');
-    emptyChatMessage.classList.add('hide');
+    const welcomeMessage = document.querySelector('.welcome-message');
+    welcomeMessage.textContent = `Welcome! You're in the #${room} chat room. Send a message below or choose a different room!`;
     const html = `
       <div class="chat__message">
         <div class="chat__content">
@@ -23,10 +23,9 @@ export default class ChatUI {
     this.container.scrollTop = this.container.scrollHeight;
   }
 
-  clear() {
-    this.container.innerHTML = `
-    <p class="empty-chat-message">
-      This chat is empty. Send a message below.
-    </p>`;
+  clear(room) {
+    this.container.innerHTML = `<p class="welcome-message">
+    Welcome! You're in the #${room} chat room. Send a message below or choose a different room!
+  </p>`;
   }
 }
