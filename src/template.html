@@ -37,7 +37,7 @@
     <main class="container">
       <nav>
         <h2>Choose a chat room:</h2>
-        <ul class="menu">
+        <ul class="chat-rooms-list">
           <li>
             <button id="general" class="chat-room active">#general</button>
           </li>
@@ -47,29 +47,22 @@
         </ul>
       </nav>
       <div class="chat">
-        <p class="empty-chat-message">
-          This chat is empty. Send a message below.
+        <p class="welcome-message">
+          Welcome! You're in the #general chat room. Send a message below or choose a different room!
         </p>
-        <!-- <div class="chat__message">
-          <div class="chat__content">
-            <span class="chat__name">name</span>
-            <span class="chat__text">message</span>
-          </div>
-          <p class="chat__details">less than a minute ago</p>
-        </div> -->
       </div>
       <form class="new-message">
         <label for="message">Your message:</label>
         <div class="form-group">
           <input type="text" name="message" id="message" required />
-          <button type="submit" class="btn send-message">send</button>
+          <button type="submit" class="btn">send</button>
         </div>
       </form>
       <form class="new-name">
-        <label for="update-name">Update name:</label>
+        <label for="name">Update name:</label>
         <div class="form-group">
-          <input type="text" name="update-name" id="update-name" />
-          <button type="submit" class="btn update-name">update</button>
+          <input type="text" name="name" id="name" required />
+          <button type="submit" class="btn">update</button>
         </div>
         <div class="feedback-message"></div>
       </form>
