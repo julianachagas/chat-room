@@ -13,6 +13,24 @@ html {
   --accent-color: #4747ae;
   --gray: #6e6e6e;
   -webkit-text-size-adjust: 100%;
+  scrollbar-width: thin;
+  scrollbar-color: hsl(240, 42%, 70%) hsl(240, 42%, 53%);
+}
+
+html::-webkit-scrollbar {
+  width: 0.6vw;
+}
+
+html::-webkit-scrollbar-thumb {
+  background-color: hsl(240, 42%, 70%);
+}
+
+html::-webkit-scrollbar-thumb:hover {
+  background-color: hsl(240, 42%, 75%);
+}
+
+html::-webkit-scrollbar-track {
+  background-color: hsl(240, 42%, 53%);
 }
 
 body {
@@ -37,6 +55,18 @@ button {
   border: none;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
+}
+
+button:focus-visible,
+input:focus-visible,
+a:focus-visible {
+  outline-style: solid;
+  outline-color: transparent;
+  box-shadow: 0 0 0 3px #000;
+}
+
+input:focus {
+  box-shadow: inset 0 0 0 3px #000;
 }
 
 a {
@@ -77,14 +107,16 @@ h2 {
   margin-bottom: 2rem;
 }
 
-.menu {
+/* chat rooms nav */
+
+.chat-rooms-list {
   width: 100%;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
   gap: 2rem 4rem;
 }
 
-.menu button {
+.chat-rooms-list button {
   border-radius: 10px;
   width: 100%;
   display: inline-block;
@@ -93,15 +125,17 @@ h2 {
   padding: 1rem;
 }
 
-.menu button:hover {
+.chat-rooms-list button:hover {
   transform: translateY(-3px);
   background: var(--secondary-color);
 }
 
-.menu button.active {
+.chat-rooms-list button.active {
   background: var(--secondary-color);
   font-weight: 500;
 }
+
+/* chat container */
 
 .chat {
   margin-block: 4rem;
@@ -111,16 +145,38 @@ h2 {
   max-height: 50rem;
   overflow-y: auto;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  /* custom scrollbar firefox */
+  scrollbar-width: thin;
+  scrollbar-color: hsl(240, 100%, 90%) #fff;
 }
 
-.empty-chat-message {
+/* custom scrollbar webkit: chat container */
+.chat::-webkit-scrollbar {
+  width: 10px;
+}
+
+.chat::-webkit-scrollbar-thumb {
+  background-color: hsl(240, 100%, 90%);
+}
+
+.chat::-webkit-scrollbar-thumb:hover {
+  background-color: hsl(240, 100%, 85%);
+}
+
+.chat::-webkit-scrollbar-track {
+  background-color: #fff;
+}
+
+.chat::-webkit-scrollbar-track:hover {
+  background-color: rgb(245, 245, 245);
+}
+
+/* chat elements */
+
+.welcome-message {
   text-align: center;
   color: var(--primary-color);
   font-size: 1.5rem;
-}
-
-.empty-chat-message.hide {
-  display: none;
 }
 
 .chat,
@@ -131,10 +187,8 @@ h2 {
 .chat__message {
   background: var(--secondary-color);
   padding: 1.8rem;
-}
-
-.chat__message + .chat__message {
   margin-top: 2.4rem;
+  word-break: break-all;
 }
 
 .chat__content {
@@ -148,11 +202,13 @@ h2 {
   font-weight: 600;
 }
 
-.chat__details {
+.chat__time {
   font-size: 1.4rem;
   color: var(--gray);
   margin-top: 0.8rem;
 }
+
+/* forms */
 
 .form-group {
   width: 100%;
@@ -196,6 +252,8 @@ form:last-child {
   text-align: center;
 }
 
+/* footer */
+
 footer {
   font-size: 1.4rem;
   padding: 2rem;
@@ -204,6 +262,8 @@ footer {
 footer a:hover {
   text-decoration: underline;
 }
+
+/* media queries */
 
 @media (max-width: 500px) {
   header {
@@ -215,5 +275,9 @@ footer a:hover {
   }
   .chat {
     padding: 2.4rem;
+  }
+
+  .chat-rooms-list button:hover {
+    transform: translateY(0px);
   }
 }
