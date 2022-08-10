@@ -1,0 +1,10 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /chats/{chat} {
+      allow read: if true;
+      allow create, update: if request.resource.data.message is string && request.resource.data.username is string;      
+      allow delete: if false;
+    }
+  }
+}
