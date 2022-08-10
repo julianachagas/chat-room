@@ -11,14 +11,7 @@ import {
   orderBy
 } from 'firebase/firestore';
 
-const firebaseConfig = {
-  apiKey: 'AIzaSyAhIEscPy2EOnZLu4YVwIBz5S-uqojI6Pg',
-  authDomain: 'js-projects-1ca1f.firebaseapp.com',
-  projectId: 'js-projects-1ca1f',
-  storageBucket: 'js-projects-1ca1f.appspot.com',
-  messagingSenderId: '159049717925',
-  appId: '1:159049717925:web:e2cbbdda85cdfd96c3954c'
-};
+import { firebaseConfig } from './firebase-config';
 
 initializeApp(firebaseConfig);
 
