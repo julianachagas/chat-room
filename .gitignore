@@ -2,4 +2,3 @@ node_modules/
 dist/
 .firebase/
 .firebaserc
-src/scripts/firebase-config.js
