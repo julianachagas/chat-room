@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>JS Chat</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
   </head>
   <body>
     <header>
@@ -48,24 +49,127 @@
       </nav>
       <div class="chat">
         <p class="welcome-message">
-          Welcome! You're in the #general chat room. Send a message below or choose a different room!
+          Welcome! You're in the #general chat room. Send a message below or
+          choose a different room!
         </p>
       </div>
-      <form class="new-message">
-        <label for="message">Your message:</label>
-        <div class="form-group">
-          <input type="text" name="message" id="message" required />
-          <button type="submit" class="btn">send</button>
+      <div class="forms-wrapper">
+        <form class="new-message">
+          <label for="message">Your message:</label>
+          <div class="form-group">
+            <input type="text" name="message" id="message" required />
+            <button type="submit" class="btn">Send</button>
+          </div>
+        </form>
+        <form class="new-name">
+          <label for="name">Update name:</label>
+          <div class="form-group">
+            <input type="text" name="name" id="name" required />
+            <button type="submit" class="btn">Update</button>
+          </div>
+          <div class="feedback-message"></div>
+        </form>
+        <button class="btn sign-out-btn" type="button" id="signout">
+          Sign Out
+        </button>
+      </div>
+      <div class="auth-wrapper">
+        <h2>Sign up or login to send a message</h2>
+        <div class="buttons-wrapper">
+          <button
+            class="btn modal-trigger"
+            type="button"
+            data-target="signUpModal"
+          >
+            Sign up
+          </button>
+          <button
+            class="btn modal-trigger"
+            type="button"
+            data-target="loginModal"
+          >
+            Login
+          </button>
         </div>
-      </form>
-      <form class="new-name">
-        <label for="name">Update name:</label>
-        <div class="form-group">
-          <input type="text" name="name" id="name" required />
-          <button type="submit" class="btn">update</button>
+      </div>
+      <div class="modal-wrapper" id="signUpModal">
+        <div class="modal">
+          <div class="modal-header">
+            <h3>Sign up</h3>
+            <button class="close-modal" type="button" data-target="signUpModal">
+              X
+            </button>
+          </div>
+          <form class="sign-up-form">
+            <div>
+              <label for="signup-email">Email:</label>
+              <input
+                type="email"
+                id="signup-email"
+                name="signup-email"
+                placeholder="yourname@mail.com"
+                required
+              />
+            </div>
+            <div>
+              <label for="signup-password">Password:</label>
+              <input
+                type="password"
+                id="signup-password"
+                name="signup-password"
+                required
+                placeholder="******"
+              />
+            </div>
+            <div>
+              <label for="username">Username:</label>
+              <input
+                type="username"
+                id="username"
+                name="username"
+                required
+                placeholder="username"
+              />
+            </div>
+            <button class="btn" type="submit" id="signUp">Sign up</button>
+            <div class="login-feedback"></div>
+          </form>
         </div>
-        <div class="feedback-message"></div>
-      </form>
+      </div>
+      <div class="modal-wrapper" id="loginModal">
+        <div class="modal">
+          <div class="modal-header">
+            <h3>Login</h3>
+            <button class="close-modal" type="button" data-target="loginModal">
+              X
+            </button>
+          </div>
+          <form class="login-form">
+            <div>
+              <label for="login-email">Email:</label>
+              <input
+                type="email"
+                id="login-email"
+                name="login-email"
+                placeholder="yourname@mail.com"
+                required
+              />
+            </div>
+            <div>
+              <label for="login-password">Password:</label>
+              <input
+                type="password"
+                id="login-password"
+                name="login-password"
+                required
+                placeholder="******"
+              />
+            </div>
+            <button class="btn" type="submit" id="loginBtn">Login</button>
+            <div class="login-feedback"></div>
+          </form>
+        </div>
+      </div>
     </main>
     <footer>
       Made with &#9825; by

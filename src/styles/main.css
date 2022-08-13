@@ -40,6 +40,8 @@ body {
   background: var(--primary-color);
   color: #fff;
   font-family: 'Poppins', sans-serif;
+  display: flex;
+  flex-direction: column;
 }
 
 ul {
@@ -76,7 +78,7 @@ a {
 
 .container {
   width: min(600px, 90%);
-  margin: auto;
+  margin: 0 auto;
 }
 
 header {
@@ -90,7 +92,6 @@ header {
 }
 
 header,
-nav,
 footer {
   text-align: center;
 }
@@ -105,6 +106,7 @@ h2 {
   font-size: 1.8rem;
   font-weight: 400;
   margin-bottom: 2rem;
+  text-align: center;
 }
 
 /* chat rooms nav */
@@ -213,6 +215,14 @@ h2 {
 
 /* forms */
 
+.forms-wrapper {
+  display: none;
+}
+
+.forms-wrapper.show {
+  display: block;
+}
+
 .form-group {
   width: 100%;
   display: flex;
@@ -225,15 +235,21 @@ h2 {
   width: 80%;
 }
 
-.form-group .btn {
-  flex: 1;
-  border-radius: 0 5px 5px 0;
+.btn {
   background: var(--secondary-color);
   color: var(--accent-color);
   font-weight: 500;
+  border-radius: 5px;
+  padding: 1rem 2rem;
+  min-width: 10ch;
 }
 
-.form-group .btn:hover {
+.form-group .btn {
+  flex: 1;
+  border-radius: 0 5px 5px 0;
+}
+
+.btn:hover {
   background: #ccccff;
 }
 
@@ -246,8 +262,13 @@ form + form {
   margin-top: 3rem;
 }
 
-form:last-child {
+.forms-wrapper form:last-of-type {
   margin-bottom: 4rem;
+}
+
+.sign-out-btn {
+  display: block;
+  margin: 0 auto;
 }
 
 .feedback-message {
@@ -255,11 +276,118 @@ form:last-child {
   text-align: center;
 }
 
+.buttons-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.auth-wrapper.hide {
+  display: none;
+}
+
+.modal-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(3px);
+  display: none;
+}
+
+.modal-wrapper.show {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal {
+  max-height: 100%;
+  border-radius: 10px;
+  padding: 3.2rem;
+  background: #fff;
+  color: var(--primary-color);
+  position: relative;
+  width: min(500px, 90%);
+  overflow-y: auto;
+}
+
+.modal-header {
+  margin-bottom: 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+h3 {
+  font-size: 2.5rem;
+}
+
+.close-modal {
+  font-size: 2rem;
+  padding: 0.5rem;
+  color: var(--primary-color);
+  background-color: transparent;
+  font-weight: 500;
+}
+
+.close-modal:hover {
+  color: #000;
+}
+
+.modal form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.modal input {
+  padding: 1rem;
+  border: 1px solid var(--primary-color);
+  font-size: 1.6rem;
+  width: 100%;
+  height: 4rem;
+  border-radius: 5px;
+}
+
+.modal input:focus {
+  box-shadow: inset 0 0 0 2px #000;
+}
+
+.modal input::placeholder {
+  font-size: 1.5rem;
+}
+
+.modal .btn {
+  margin-top: 1.5rem;
+  text-transform: uppercase;
+  background-color: var(--accent-color);
+  color: var(--secondary-color);
+  letter-spacing: 0.03rem;
+}
+
+.modal .btn:hover {
+  background: hsl(240, 42%, 38%);
+}
+
+.login-feedback {
+  display: none;
+}
+
+.login-feedback.show {
+  display: block;
+}
+
 /* footer */
 
 footer {
   font-size: 1.4rem;
-  padding: 2rem;
+  padding: 4rem 2rem 2rem;
+  margin-top: auto;
 }
 
 footer a:hover {
