@@ -102,7 +102,6 @@ const handleSignUp = async (email, password, name) => {
     );
     signUpForm.reset();
   } catch (err) {
-    console.log(err.message);
     updateUIAfterLogin(
       signUpModal,
       'Something went wrong. Your password should be at least 6 characters long or your email is already in use. Please, try again!'
@@ -132,7 +131,6 @@ const handleLogin = async (email, password) => {
     );
     loginForm.reset();
   } catch (err) {
-    console.log(err.message);
     updateUIAfterLogin(
       loginModal,
       'Please check your email and password, and try again!'
