@@ -9,7 +9,7 @@ export default class ChatUI {
     const { message, username, createdAt, room } = data;
     const time = formatDistanceToNow(createdAt.toDate(), { addSuffix: true });
     const welcomeMessage = document.querySelector('.welcome-message');
-    welcomeMessage.textContent = `Welcome! You're in the #${room} chat room. Send a message below or choose a different room!`;
+    welcomeMessage.textContent = `Welcome! You're in the #${room} chat room.`;
     const html = `
       <div class="chat__message">
         <div class="chat__content">
@@ -25,7 +25,7 @@ export default class ChatUI {
 
   clear(room) {
     this.container.innerHTML = `<p class="welcome-message">
-    Welcome! You're in the #${room} chat room. Send a message below or choose a different room!
+    Welcome! You're in the #${room} chat room.
   </p>`;
   }
 }
